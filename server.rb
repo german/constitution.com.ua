@@ -19,3 +19,8 @@ get '/' do
   @article = Article.random
   erb :index
 end
+
+get '/:id' do
+  @article = Article.find_by(id: params[:id])
+  erb :index
+end
