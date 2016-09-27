@@ -121,6 +121,8 @@ body {
 .stattya {
   font-family: 'Ubuntu', sans-serif;
   font-size: 32px;
+  list-style-position: outside;
+  list-style-image: url(asterisk.jpg);
 }
 
 .stattya li {
