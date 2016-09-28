@@ -17,10 +17,12 @@ end
 
 get '/' do
   @article = Article.random
+  @notes = @article.official_desc ? @article.official_desc.split(',') : []
   erb :index
 end
 
 get '/:id' do
   @article = Article.find_by(id: params[:id])
+  @notes = @article.official_desc ? @article.official_desc.split(',') : []
   erb :index
 end

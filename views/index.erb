@@ -15,10 +15,14 @@
         
         <h4>Стаття <%= @article.id %>.</h4>
         
-        <% @article.content.split("\n").each do |row| %>
-        <li><%= row %></li>
+        <% @article.content.split("\n").each_with_index do |row,i| %>
+        <li>
+          <%= row %>
+          <% if @notes[i] && @notes[i] != "" %>
+            <a href="<%= @notes[i] %>" target="_blank" title="Роз’яснення">*</a>
+          <% end %>
+        </li>
         <% end %>
-
       </ul>
     </div>
   </div>
