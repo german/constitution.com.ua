@@ -19,7 +19,13 @@
         <li>
           <%= row %>
           <% if @notes[i] && @notes[i] != "" %>
-            <a href="<%= @notes[i] %>" target="_blank" title="Роз’яснення">*</a>
+            <% if @notes[i].include?(';;') %>
+              <% @notes[i].split(';;').each do |note| %>
+              <a href="<%= note %>" target="_blank" title="Роз’яснення">*</a>
+              <% end %>
+            <% else %>
+              <a href="<%= @notes[i] %>" target="_blank" title="Роз’яснення">*</a>
+            <% end %>
           <% end %>
         </li>
         <% end %>
