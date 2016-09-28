@@ -4,7 +4,7 @@ require 'active_record'
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
-  :database =>  'constitution.sqlite3.db'
+  :database =>  '/var/www/constitution.com.ua/constitution.sqlite3.db'
 )
 
 class Article < ActiveRecord::Base
@@ -15,14 +15,16 @@ class Article < ActiveRecord::Base
   end
 end
 
-get '/' do
-  @article = Article.random
-  @notes = @article.official_desc ? @article.official_desc.split(',') : []
-  erb :index
-end
+class MyApp < Sinatra::Base
+  get '/' do
+    @article = Article.random
+    @notes = @article.official_desc ? @article.official_desc.split(',') : []
+    erb :index
+  end
 
-get '/:id' do
-  @article = Article.find_by(id: params[:id])
-  @notes = @article.official_desc ? @article.official_desc.split(',') : []
-  erb :index
+  get '/:id' do
+    @article = Article.find_by(id: params[:id])
+    @notes = @article.official_desc ? @article.official_desc.split(',') : []
+    erb :index
+  end
 end
