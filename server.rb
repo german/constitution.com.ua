@@ -4,15 +4,21 @@ require 'active_record'
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
-  :database =>  '/var/www/constitution.com.ua/constitution.sqlite3.db'
+  :database =>  './constitution.sqlite3.db'
 )
 
 class Article < ActiveRecord::Base
+  belongs_to :section
+
   def self.random
     count = self.count
     rand = rand(1..count)
     self.find_by(id: rand)
   end
+end
+
+class Section < ActiveRecord::Base
+  has_many :articles
 end
 
 class MyApp < Sinatra::Base
