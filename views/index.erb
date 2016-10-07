@@ -14,8 +14,8 @@
       <ul class="col-lg-12 stattya">
         <h4 title="<%= @article.section.title %>">Стаття <a href="/<%= @article.id %>"><%= @article.id %></a>.</h4>
 
-        <% @article.content.split("\n").each do |row| %>
-        <li class="<%= @article.add_bullets ? '' : 'no-bullets' %>">
+        <% @article.content.split("\n").each_with_index do |row,i| %>
+        <li id="<%= i + 1 %>" class="<%= @article.add_bullets ? '' : 'no-bullets' %>">
           <% content, notes = row.split('||') %>
 
           <% if content.match(/\#\d+/m) %>
