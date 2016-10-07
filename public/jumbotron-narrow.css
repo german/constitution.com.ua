@@ -128,3 +128,24 @@ body {
 .stattya li {
   margin-top:20px;
 }
+
+.new-row {
+  color: green;
+  background-color: lightgreen;
+}
+
+.removed-row {
+  text-decoration: line-through;
+  color: lightgrey;
+  background-color: honeydew;
+}
+
+.removed-text {
+  text-decoration: line-through;
+  color: lightgrey;
+  background-color: honeydew;
+}
+
+.no-bullets {
+  list-style: none;
+}
