@@ -129,7 +129,7 @@ body {
   margin-top:20px;
 }
 
-.new-row {
+.new-row, .added-text {
   color: green;
   background-color: lightgreen;
 }
