@@ -31,4 +31,12 @@ class MyApp < Sinatra::Base
     @article = Article.find_by(id: params[:id])
     erb :index
   end
+
+  get '/subscribe' do
+    erb :subscribe
+  end
+
+  get '/confirm_email' do
+    erb :confirm_email
+  end
 end
