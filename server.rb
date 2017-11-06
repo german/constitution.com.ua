@@ -28,8 +28,8 @@ class MyApp < Sinatra::Base
   end
 
   get '/:id' do
-    @article = Article.find_by(id: params[:id])
-    erb :index
+    @article = Article.find_by(id: params[:id].to_i)
+    erb @article ? :index : :404
   end
 
   get '/subscribe' do
